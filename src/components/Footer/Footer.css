@@ -1,0 +1,11 @@
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(49, 47, 47);
+}
+.nombres_footer{
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
