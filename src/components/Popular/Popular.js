@@ -15,12 +15,14 @@ class Popular extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            datos:[]
+            datos:[],
+            loading: true,
     }}
 
     
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+        fetch(
+            'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
         .then(res => res.json())
         .then(res => console.log(res))
         // .then (data => this.setState({datos:data.results})) HAY UN PROBLEMA CON ESTE RESULTS
@@ -28,6 +30,7 @@ class Popular extends Component {
     }
     
     render() {
+        if (this.state.loading) return <h3>Cargando...</h3>;
         return (
             this.state.datos.map((pelicula, idx) =>
                 <CartaPopular key={pelicula.id}
