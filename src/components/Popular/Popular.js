@@ -1,6 +1,6 @@
 import react from "react";
 import {Component} from "react";
-import CartaPopular from "../CartaPopular/CartaPopular";
+import CartaPopular from "../CartaPopular/CartaPopular"
 
 const options = {
     method: 'GET',

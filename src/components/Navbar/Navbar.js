@@ -21,12 +21,17 @@ function Navbar() {
                         <Link to ="/favoritos" className="nav-link" >Favoritas</Link>
                     </li>
                 </ul>
-                {/* <form className="search-form" action="results.html" method="get">
-                    <input type="text" className="" name="searchData" placeholder="Buscar..." value="">
+                 <form className="search-form" onSubmit={(event)=> this.evitarSubmit(event)}>
+                    <select name="type" defaultValue="movie">
+                    <option value="movie">Películas</option>
+                    <option value="tv">Series</option>
+                    </select>
+                    <input type="text" className="" name="searchData" placeholder="Buscar..." />
                     <button type="submit" className="btn btn-success btn-sm">Buscar</button>
-                </form>  NO SE BIEN COMO SE HACE EL FORM DE BUSQUEDA, ESTA ES LA ESTRUCTURA DE LA MAQUETA */}
+                </form> 
             </nav>
         </header>
-  )}
+  );
+}
 
   export default Navbar;
