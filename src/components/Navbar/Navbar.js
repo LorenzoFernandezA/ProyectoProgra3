@@ -5,7 +5,7 @@ import "./Navbar.css"
 function Navbar() {
   return (
         <header>
-            <h2 className="nombre_app"> ELEGIR NOMBRE DE LA APLICACION </h2>
+            <h2 className="nombre_app"> PelisUdesa </h2>
             <nav>
                 <ul className="nav nav-tabs my-4">
                     <li className="nav-item">

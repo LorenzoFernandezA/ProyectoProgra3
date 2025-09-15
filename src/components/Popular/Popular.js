@@ -1,6 +1,6 @@
 import react from "react";
 import {Component} from "react";
-import Cartapopular from "../Cartapopular/Cartapopular";
+import CartaPopular from "../CartaPopular/CartaPopular";
 
 const options = {
     method: 'GET',
@@ -30,7 +30,7 @@ class Popular extends Component {
     render() {
         return (
             this.state.datos.map((pelicula, idx) =>
-                <Cartapopular key={pelicula.id}
+                <CartaPopular key={pelicula.id}
                 titulo={pelicula.title}
                 imagen={pelicula.poster_path}
                 id={pelicula.id}

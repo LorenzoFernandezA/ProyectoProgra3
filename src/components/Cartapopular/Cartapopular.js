@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
 
-class Cartapopular extends Component {
+class CartaPopular extends Component {
     
     constructor(props) {
         super(props);
@@ -17,4 +17,4 @@ class Cartapopular extends Component {
         )
     }
 }
-export default Cartapopular;
+export default CartaPopular;
