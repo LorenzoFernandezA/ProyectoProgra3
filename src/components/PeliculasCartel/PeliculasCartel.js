@@ -6,20 +6,19 @@ class PeliculasCartel extends Component {
         super(props);
         this.state = {
             datos: [],
-            loading: true
         };
     }
 
     componentDidMount(){
-        fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=e869b9e987b5106b290be42193522eba&language=en-US&page=1`)
         .then(res => res.json())
-        .then(data => this.setState({datos: data.results, loading: false}))
+        .then(data => this.setState({datos: data.results}))
         .catch(error => console.error(error));
         
 
     }
     render(){
-        if (this.state.loading) return <h3>Cargando...</h3>;
+      if (this.state.datos.length === 0) return <h3>Cargando...</h3>;
         return(
             <div>
                 <h2>De Estreno: </h2>
