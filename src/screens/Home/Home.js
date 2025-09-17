@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Cartelera from "../../components/Cartelera/Cartelera";
 import Peliculas from "../../components/Peliculas/Peliculas";
+
 function Home() {
     return (
         <React.Fragment>

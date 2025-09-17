@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class PeliculaCard extends Component {
+class CarteleraCard extends Component {
     
     constructor(props) {
         super(props);
@@ -39,4 +39,4 @@ class PeliculaCard extends Component {
             </React.Fragment>)
     }
 }
-export default PeliculaCard;
+export default CarteleraCard;

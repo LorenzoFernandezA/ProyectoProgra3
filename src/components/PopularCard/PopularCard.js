@@ -29,6 +29,7 @@ class PeliculaCard extends Component {
         if (this.state.loading) return <h3>Cargando...</h3>;
         return (
             <React.Fragment>
+                <div>
                     <h3>{this.props.nombre}</h3>
                     <img src ={'https://image.tmdb.org/t/p/w342/' + this.props.poster_path}/>   
                     
@@ -36,6 +37,7 @@ class PeliculaCard extends Component {
                      {this.state.verMas==true ?
                     <section className='extra'><p> Descripcion: {this.props.descripcion}</p>
                     </section> : ""}
+                    </div>
             </React.Fragment>)
     }
 }

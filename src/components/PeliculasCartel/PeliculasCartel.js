@@ -17,6 +17,8 @@ class PeliculasCartel extends Component {
         
 
     }
+
+    
     render(){
       if (this.state.datos.length === 0) return <h3>Cargando...</h3>;
         return(
