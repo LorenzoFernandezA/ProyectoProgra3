@@ -36,6 +36,7 @@ class PeliculaCard extends Component {
                      {this.state.verMas==true ?
                     <section className='extra'><p> Descripcion: {this.props.descripcion}</p>
                     </section> : ""}
+                    <button><Link to={`detalle/${this.state.data.id}`}>Ver Detalles</Link></button>
             </React.Fragment>)
     }
 }

@@ -17,6 +17,7 @@ function App() {
       <Route path="/favoritos" component={Favoritos}/>
       <Route path="/search" component={SearchResults}/>
       <Route path="verEstreno" component={verEstreno}/>
+      <Route path={'/detalle/:id'} component={Detalle} />
       <Route component={Error}/>
     </Switch>
   );
