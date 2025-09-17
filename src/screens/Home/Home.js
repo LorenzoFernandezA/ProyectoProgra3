@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Cartelera from "../../components/Cartelera/Cartelera";
+import FormSearch from "../../components/FormSearch/FormSearch";
 import Peliculas from "../../components/Peliculas/Peliculas";
 
 function Home() {
@@ -9,6 +9,7 @@ function Home() {
         <React.Fragment>
 
             <Navbar/>
+            <FormSearch/>
             <Peliculas/>
             <Footer/>
 

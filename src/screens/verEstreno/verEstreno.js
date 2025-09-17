@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import PeliculasCartel from "../../components/PeliculasCartel/PeliculasCartel";
+import Cartelera from "../../components/Cartelera/Cartelera";
 
-class verCartelera extends Component {
+
+class verEstreno extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -11,3 +12,4 @@ class verCartelera extends Component {
     }
 }
 
+export default verEstreno;
