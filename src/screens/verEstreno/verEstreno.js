@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Cartelera from "../../components/Cartelera/Cartelera";
 
 
 class VerEstreno extends Component {
