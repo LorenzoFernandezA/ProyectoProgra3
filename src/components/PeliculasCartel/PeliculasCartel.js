@@ -32,7 +32,7 @@ class PeliculasCartel extends Component {
             id={pelicula.id}
           />
         ))}
-        <button>Ver todas</button>
+        <Link to={"verMasEstreno"}><h4>Ver Todas</h4></Link>
       </div>
     );
   }

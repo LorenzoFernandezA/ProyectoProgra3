@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { withRouter } from "react-router-dom";
 
 const options = {
   method: 'GET',
@@ -43,4 +44,4 @@ class DetalleCard extends Component{
 
 
 
-export default DetalleCard
+export default withRouter(DetalleCard);

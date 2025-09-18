@@ -7,18 +7,20 @@ import Peliculas from "./screens/Peliculas/Peliculas";
 import Favoritos from "./screens/Favoritos/Favoritos";
 import Error from "./screens/Error/Error";
 import SearchResults from "./screens/SearchResults/SearchResults";
-import VerEstreno from './screens/VerEstreno/VerEstreno';
+import verMasEstreno from './screens/verMasEstreno/verMasEstreno';
 import DetalleCard from './components/DetalleCard/DetalleCard';
+import Detalle from './screens/Detalle/Detalle';
 
 function App() {
   return (
     <Switch>
       <Route path="/" exact={true} component={Home}/>
       <Route path="/peliculas" component={Peliculas}/>
+      \
       <Route path="/favoritos" component={Favoritos}/>
       <Route path="/search" component={SearchResults}/>
-      <Route path="/VerEstreno" component={VerEstreno}/>
-      <Route path={'/detalle/:id'} component={DetalleCard} />
+      <Route path="/verMasEstreno" component={verMasEstreno}/>
+      <Route path={'/detalle/:id'} component={Detalle} />
       <Route component={Error}/>
     </Switch>
   );
