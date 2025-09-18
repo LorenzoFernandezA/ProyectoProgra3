@@ -1,5 +1,6 @@
 import {Component} from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard";
+import { Link } from "react-router-dom";
 import "./PeliculasCartel.css";
 
 class PeliculasCartel extends Component {

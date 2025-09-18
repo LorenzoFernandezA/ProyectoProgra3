@@ -25,18 +25,7 @@ class PeliculaCard extends Component {
                     textovm: "Ver menos"
             })}}
 
-    agregarFavoritos(id){
-        const fav = localStorage.getItem('favoritos');
-
-        if(favs){
-            const lista = JSON.parse(fav);
-            lista.push(id);
-            localStorage.setItem('favoritos', JSON.stringify(lista));
-        } else{
-            localStorage.setItem('favoritos', JSON.stringify([id]));
-        }
-        this.setState({favorito: true});
-    }        
+      
     
     
     

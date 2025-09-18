@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import DetalleCard from "../../components/DetalleCard/DetalleCard";
+import Navbar from "../../components/Navbar/Navbar"
 
 class Detalle extends Component{
     constructor(props) {
@@ -20,6 +21,7 @@ class Detalle extends Component{
     render(){
         return(
             <React.Fragment>
+                <Navbar/>
                 <h3>Detalles: </h3>
                 {this.state.data && <DetalleCard data={this.state.data}/>}
             </React.Fragment>
