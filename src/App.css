@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f0f1a;  /* fondo oscuro */
+  color: #eaeaea;             /* texto claro */
+}
+
+h2 {
+  margin: 20px 0 10px;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #4da6ff;             /* azul vibrante */
+  font-weight: 600;
+}
+
+button {
+  padding: 10px 16px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: #4da6ff;
+  color: white;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #267acc;
+  transform: scale(1.05);
+}

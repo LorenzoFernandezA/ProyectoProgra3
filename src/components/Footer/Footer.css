@@ -1,11 +1,20 @@
-.footer{
+footer {
+    background-color: #1e1e2f;
+    color: #ddd;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 2px solid #4da6ff;
+  
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(49, 47, 47);
-}
-.nombres_footer{
-    color: white;
-    text-align: center;
-    padding: 10px;
-}
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  footer p {
+    margin: 0;
+  }

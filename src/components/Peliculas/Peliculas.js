@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import PeliculaCard from "../PeliculaCard/PeliculaCard";
+import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
+import "./Pelicula.css";
 
 
 
