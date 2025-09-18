@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { withRouter } from "react-router-dom";
+import './DetalleCard.css';
 
 const options = {
   method: 'GET',
@@ -27,15 +28,16 @@ class DetalleCard extends Component{
 
     render(){
         return(
-            <div>
-                <h3>Nombre:{this.state.info.title}</h3>
+            <div className="cartaDetalle">
+                <h3>Nombre: {this.state.info.title}</h3>
                 <img src ={'https://image.tmdb.org/t/p/w342/' + this.state.info.poster_path}/>
-                <p>Calificacion:{this.state.info.popularity}</p>
-                <p>Estreno:{this.state.info.release_date} </p>
-                <p>Duracion:{this.state.info.runtime} </p>
-                <p>Sinopsis: Falta esto</p>
-                <p>Genero: no se como ponerlos </p>
-                <p>boton de favoritos</p>
+                <p>Calificacion: {this.state.info.popularity}</p>
+                <p>Estreno: {this.state.info.release_date} </p>
+                <p>Duracion en minutos: {this.state.info.runtime} </p>
+                <p>Sinopsis: {this.state.info.overview} </p>
+                <p>Genero: {this.state.info.genres &&
+                    this.state.info.genres.map(genero => genero.name).join(', ')} </p>
+                <button>Agregar a Favoritos</button>
                 
             </div>
         )
