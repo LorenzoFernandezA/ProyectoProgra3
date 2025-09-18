@@ -1,5 +1,5 @@
 import {Component} from "react";
-import CartaPopular from "../CartaPopular/CartaPopular";
+import PeliculaCard from "../PeliculaCard/PeliculaCard";
 
 class PeliculasCartel extends Component {
     constructor(props){
@@ -24,10 +24,10 @@ class PeliculasCartel extends Component {
         return(
             <div>
                 <h2>De Estreno: </h2>
-                {this.state.datos.map((pelicula)=> (<CartaPopular
+                {this.state.datos.slice(0,4).map((pelicula)=> (<PeliculaCard
             key={pelicula.id}
             titulo={pelicula.title}
-            imagen={''}
+            imagen={pelicula.poster_path}
             id={pelicula.id}
           />
         ))}

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Cartelera from "../../components/Cartelera/Cartelera";
 
 
-class verEstreno extends Component {
+class VerEstreno extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -12,4 +12,4 @@ class verEstreno extends Component {
     }
 }
 
-export default verEstreno;
+export default VerEstreno;

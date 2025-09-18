@@ -1,8 +1,6 @@
 import React, {Component} from "react";
-import Cartelera from "../Cartelera/Cartelera";
 import PeliculaCard from "../PeliculaCard/PeliculaCard";
-import PopularCard from "../PopularCard/PopularCard";
-import CarteleraCard from "../CarteleraCard/CarteleraCard";
+
 
 
 const options = {
@@ -18,18 +16,11 @@ class Peliculas extends Component {
         super(props);
         this.state = {
             populares: [],
-            estreno: [],
-            proximaEstrenos: 2,
             proximaPopular: 2
         };
     }
 
     componentDidMount(){
-        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
-        .then(res => res.json())
-        .then(data => this.setState({estreno: data.results.slice(0, 4)}))
-        .catch(error => console.error(error));
-
        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options)
         .then(res => res.json())
         .then(data => this.setState({populares: data.results}))
@@ -45,18 +36,11 @@ class Peliculas extends Component {
     }
 
 
-    cargarEstraenos(){
-         fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${this.state.proximaEstrenos}`,options) /*esta mal la parte de this.state.proximapopular,no lo lee como parte del link*/
-    .then(response => response.json())
-    .then(data => this.setState({estreno: this.state.estreno.concat(data.results),proximaEstrenos: this.state.proximaEstrenos + 1}))
-    .catch(error => console.log(error));
-    }
-
     
     render(){
       return(
         <React.Fragment>
-          <h2>Peliculas mas Populares</h2>
+          <h2>Todas las peliculas mas Populares</h2>
   
             <section>
               {this.state.populares.map((popular, i) => (
@@ -70,17 +54,6 @@ class Peliculas extends Component {
             </section> 
             <button className="more" onClick={() => this.cargarPopulares()}> Cargar mas populares</button>
 
-          <h2>Peliculas en Cartelera</h2>
-              <section>
-                  {this.state.estreno.map((una, i)=>(
-                      <PeliculaCard nombre={una.title}
-                      imagen={una.poster_path}
-                      descripcion={una.overview}
-                      id={una.id}
-                      key={i + una.id}/>
-                  ))}
-              </section>
-             <button className="more" onClick={() =>this.cargarEstraenos()} > Cargar mas en cartelera </button>
         </React.Fragment>
       );
   }
