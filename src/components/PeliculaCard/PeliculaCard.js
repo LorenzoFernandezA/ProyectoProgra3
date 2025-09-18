@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { Link } from "react-router-dom";
 
 class PeliculaCard extends Component {
     
@@ -30,13 +31,14 @@ class PeliculaCard extends Component {
         return (
             <React.Fragment>
                     <h3>{this.props.nombre}</h3>
-                    <img src ={'https://image.tmdb.org/t/p/w342/' + this.props.poster_path}/>   
+                    <img src ={'https://image.tmdb.org/t/p/w342/' + this.props.imagen}/>   
                     
                      <button className='more' onClick={() =>this.cambiar()}> {this.state.textovm}</button>
                      {this.state.verMas==true ?
                     <section className='extra'><p> Descripcion: {this.props.descripcion}</p>
                     </section> : ""}
-                    <button><Link to={`detalle/${this.state.data.id}`}>Ver Detalles</Link></button>
+                    <button><Link to={`detalle/${this.props.id}`}>Ver Detalles</Link></button>
+
             </React.Fragment>)
     }
 }

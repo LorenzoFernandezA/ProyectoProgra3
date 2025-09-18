@@ -7,7 +7,7 @@ import Favoritos from "./screens/Favoritos/Favoritos";
 import Error from "./screens/Error/Error";
 import SearchResults from "./screens/SearchResults/SearchResults";
 import verEstreno from './screens/verEstreno/verEstreno';
-
+import DetalleCard from './components/DetalleCard/DetalleCard';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Route path="/favoritos" component={Favoritos}/>
       <Route path="/search" component={SearchResults}/>
       <Route path="verEstreno" component={verEstreno}/>
-      <Route path={'/detalle/:id'} component={Detalle} />
+      <Route path={'/detalle/:id'} component={DetalleCard} />
       <Route component={Error}/>
     </Switch>
   );

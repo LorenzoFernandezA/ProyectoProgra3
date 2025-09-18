@@ -4,6 +4,7 @@ import PeliculaCard from "../PeliculaCard/PeliculaCard";
 import PopularCard from "../PopularCard/PopularCard";
 import CarteleraCard from "../CarteleraCard/CarteleraCard";
 
+
 const options = {
   method: 'GET',
   headers: {
@@ -18,7 +19,7 @@ class Peliculas extends Component {
         this.state = {
             populares: [],
             estreno: [],
-            proximaEstrenos: 1,
+            proximaEstrenos: 2,
             proximaPopular: 2
         };
     }
@@ -37,12 +38,21 @@ class Peliculas extends Component {
     }
 
     cargarPopulares(){
-        fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page={this.state.proximaPopula}',options) /*esta mal la parte de this.state.proximapopular,no lo lee como parte del link*/
+        fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.proximaPopular}`,options) /*esta mal la parte de this.state.proximapopular,no lo lee como parte del link*/
     .then(response => response.json())
     .then(data => this.setState({populares: this.state.populares.concat(data.results),proximaPopular: this.state.proximaPopular + 1}))
     .catch(error => console.log(error));
     }
 
+
+    cargarEstraenos(){
+         fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${this.state.proximaEstrenos}`,options) /*esta mal la parte de this.state.proximapopular,no lo lee como parte del link*/
+    .then(response => response.json())
+    .then(data => this.setState({estreno: this.state.estreno.concat(data.results),proximaEstrenos: this.state.proximaEstrenos + 1}))
+    .catch(error => console.log(error));
+    }
+
+    
     render(){
       return(
         <React.Fragment>
@@ -50,9 +60,10 @@ class Peliculas extends Component {
   
             <section>
               {this.state.populares.map((popular, i) => (
-                  <PopularCard nombre={popular.title}
+                  <PeliculaCard nombre={popular.title}
                     imagen={popular.poster_path}
                     descripcion={popular.overview}
+                    id={popular.id}
                     key={i + popular.id}
                    />
               ))}
@@ -62,13 +73,14 @@ class Peliculas extends Component {
           <h2>Peliculas en Cartelera</h2>
               <section>
                   {this.state.estreno.map((una, i)=>(
-                      <CarteleraCard nombre={una.title}
+                      <PeliculaCard nombre={una.title}
                       imagen={una.poster_path}
                       descripcion={una.overview}
+                      id={una.id}
                       key={i + una.id}/>
                   ))}
               </section>
-             <button className="more" onClick={() =>this.cargarPopulares()} > Cargar mas</button>
+             <button className="more" onClick={() =>this.cargarEstraenos()} > Cargar mas en cartelera </button>
         </React.Fragment>
       );
   }
