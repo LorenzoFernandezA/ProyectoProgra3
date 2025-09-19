@@ -29,6 +29,7 @@ class SeriesPopulares extends React.Component {
         return (
       <div>
         <h2>Series Populares:</h2>
+        <section className="cuadrado">
         {this.state.datos.slice(0, 4).map((serie) => (
           <PeliculaCard
             key={serie.id}
@@ -38,9 +39,12 @@ class SeriesPopulares extends React.Component {
             id={serie.id}
           />
         ))}
-        <Link to="/series">
+        </section>
+        <div className="vertodas">
+        <Link to="/series-populares">
           <button>Ver todas</button>
-        </Link>
+      </Link>
+      </div>
       </div>
     );
     }

@@ -30,6 +30,7 @@ fetch('https://api.themoviedb.org/3/tv/on_the_air?api_key=e869b9e987b5106b290be4
         return (
       <div>
         <h2>Series de Estreno:</h2>
+        <section className="cuadrado">
         {this.state.datos.slice(0, 4).map((serie) => (
           <PeliculaCard
             key={serie.id}
@@ -39,9 +40,12 @@ fetch('https://api.themoviedb.org/3/tv/on_the_air?api_key=e869b9e987b5106b290be4
             id={serie.id}
           />
         ))}
-        <Link to="/series">
-          <button>Ver todas</button>
-        </Link>
+        </section>
+        <div className="vertodas">
+        <Link to="/series-estreno">
+      <button>Ver todas</button>
+        </Link>   
+        </div>
       </div>
     );
     }

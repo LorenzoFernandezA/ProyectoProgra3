@@ -1,23 +1,25 @@
-section {
+.cuadrado{
   display: grid;
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(4, 220px); 
+  gap: 130px;
+  justify-content: center;
+  padding: 20px 0;
+  max-width: 1400px;
+
 }
 
-.card {
-  background-color: #2a2a3d;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  width: 220px;
-  transition: transform 0.3s ease;
+.vertodas{
+  display: flex;
+  justify-content: center; 
+  margin-top: 20px;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.card a {
+  text-decoration: none;  
+  color:white;        
+  font-weight: bold;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 8px;
+.card a:hover {
+  color: #267acc;         
 }

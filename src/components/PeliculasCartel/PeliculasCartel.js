@@ -25,15 +25,21 @@ class PeliculasCartel extends Component {
       if (this.state.datos.length === 0) return <h3>Cargando...</h3>;
         return(
             <div>
-                <h2>De Estreno: </h2>
+                <h2>Peliculas de Estreno: </h2>
+
+                <section className="cuadrado">
                 {this.state.datos.slice(0,4).map((pelicula)=> (<PeliculaCard
             key={pelicula.id}
-            titulo={pelicula.title}
+            nombre={pelicula.title}
             imagen={pelicula.poster_path}
+            descripcion={pelicula.overview}
             id={pelicula.id}
           />
         ))}
-        <Link to={"verMasEstreno"}><h4>Ver Todas</h4></Link>
+        </section>
+        <div className="vertodas">
+        <Link to={"verMasEstreno"}><button className="more">Ver Todas</button></Link>
+        </div>
       </div>
     );
   }

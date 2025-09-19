@@ -10,6 +10,9 @@ import verMasEstreno from './screens/verMasEstreno/verMasEstreno';
 import DetalleCard from './components/DetalleCard/DetalleCard';
 import Detalle from './screens/Detalle/Detalle';
 import VerMasPopulares from './screens/VerMasPopulares/VerMasPopulares';
+import VerMasSeriesPopulares from "./screens/VerMasSeriesPopulares/VerMasSeriesPopulares";
+import VerMasSeriesEstreno from "./screens/VerMasSeriesEstreno/VerMasSeriesEstreno.js";
+
 
 
 function App() {
@@ -17,6 +20,8 @@ function App() {
     <Switch>
       <Route path="/" exact={true} component={Home}/>
       <Route path="/peliculas-populares" component={VerMasPopulares}/>
+      <Route path="/series-populares" component={VerMasSeriesPopulares}/> 
+      <Route path="/series-estreno" component={VerMasSeriesEstreno}/>
       <Route path="/favoritos" component={Favoritos}/>
       <Route path="/search" component={SearchResults}/>
       <Route path="/verMasEstreno" component={verMasEstreno}/>

@@ -23,6 +23,7 @@ class PeliculasPopulares extends Component {
     return (
       <div>
         <h2>Películas Populares:</h2>
+        <section className="cuadrado">
         {this.state.datos.slice(0, 4).map((pelicula) => (
           <PeliculaCard
             key={pelicula.id}
@@ -32,9 +33,12 @@ class PeliculasPopulares extends Component {
             id={pelicula.id}
           />
         ))}
+        </section>
+        <div className="vertodas"> 
         <Link to="/peliculas-populares">
           <button>Ver todas</button>
         </Link>
+        </div>
       </div>
     );
   }
