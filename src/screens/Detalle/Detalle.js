@@ -22,7 +22,7 @@ class Detalle extends Component{
         return(
             <React.Fragment>
                 <Navbar/>
-                <h3>Detalles: </h3>
+                
                 {this.state.data && <DetalleCard data={this.state.data}/>}
             </React.Fragment>
         )
