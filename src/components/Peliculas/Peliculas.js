@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
-import "./Pelicula.css";
+import "./Peliculas.css";
 
 
 
@@ -22,12 +22,13 @@ class Peliculas extends Component {
     }
 
     componentDidMount(){
-       fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',options)
-        .then(res => res.json())
-        .then(data => this.setState({populares: data.results}))
-        .catch(error => console.error(error));
+      fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
+  .then(res => res.json())
+  .then (data => this.setState({populares:data.results}))
+  .catch(err => console.error(err));
+}
       
-    }
+
 
     cargarPopulares(){
         fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.proximaPopular}`,options) /*esta mal la parte de this.state.proximapopular,no lo lee como parte del link*/
@@ -57,6 +58,6 @@ class Peliculas extends Component {
 
         </React.Fragment>
       );
-  }
+  };
 }
- export default Peliculas;
+export default Peliculas;

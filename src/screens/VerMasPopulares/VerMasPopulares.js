@@ -1,19 +1,16 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import Peliculas from "../../components/Peliculas/Peliculas";
 
-
-function Peliculas() {
+function VerMasPopulares() {
     return (
         <React.Fragment>
-            <div>
-                <h1>Peliculas</h1>
-            </div>
 
             <Navbar/>
-
+            <Peliculas/>
             <Footer/>
-            
+
         </React.Fragment>
     )}
-export default Peliculas;
+export default VerMasPopulares;

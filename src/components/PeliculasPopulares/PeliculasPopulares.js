@@ -32,7 +32,7 @@ class PeliculasPopulares extends Component {
             id={pelicula.id}
           />
         ))}
-        <Link to="/peliculas">
+        <Link to="/peliculas-populares">
           <button>Ver todas</button>
         </Link>
       </div>
