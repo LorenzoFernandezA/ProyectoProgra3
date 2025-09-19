@@ -1,0 +1,16 @@
+.cuadradosresul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cuadradosresul .card {
+    background-color: #2a2a3d;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    width: 220px;
+    margin: 0 auto;
+}
