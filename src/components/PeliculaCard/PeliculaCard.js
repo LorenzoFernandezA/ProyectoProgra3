@@ -33,7 +33,7 @@ class PeliculaCard extends Component {
         
         return (
             <React.Fragment>
-                <article>
+                <article className="card">
                     <h3>{this.props.nombre}</h3>
                     <img src ={'https://image.tmdb.org/t/p/w342' + this.props.imagen}/>   
                     

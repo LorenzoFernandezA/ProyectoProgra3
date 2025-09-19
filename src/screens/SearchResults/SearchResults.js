@@ -35,7 +35,12 @@ class SearchResults extends Component {
                     {this.state.resultados.length > 0
                         ?
                         (this.state.resultados.map(elm => (
-                            <PeliculaCard data={elm} key={elm.id} />
+                            <PeliculaCard  
+                            key={elm.id}
+                            nombre={elm.title}   
+                            imagen={elm.poster_path}
+                            descripcion={elm.overview}
+                            id={elm.id}/>
 
                         ))
                     ) : ( 

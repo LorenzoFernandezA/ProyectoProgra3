@@ -18,7 +18,7 @@ class SeriesPopulares extends React.Component {
         };
     }
     componentDidMount() {
-        fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
+        fetch('https://api.themoviedb.org/3/tv/popular?api_key=e869b9e987b5106b290be42193522eba&language=en-US&page=1', options)
     .then(res => res.json())
     .then (data => this.setState({datos:data.results}))
     .catch(err => console.error(err));
@@ -32,7 +32,7 @@ class SeriesPopulares extends React.Component {
         {this.state.datos.slice(0, 4).map((serie) => (
           <PeliculaCard
             key={serie.id}
-            nombre={serie.title}
+            nombre={serie.name}
             imagen={serie.poster_path}
             descripcion={serie.overview}
             id={serie.id}

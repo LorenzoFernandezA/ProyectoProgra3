@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import FormSearch from "../FormSearch/FormSearch";
 import "./Navbar.css";
 
 function Navbar() {
@@ -21,14 +22,9 @@ function Navbar() {
                         <Link to ="/favoritos" className="nav-link" >Favoritas</Link>
                     </li>
                 </ul>
-                 <form className="search-form" onSubmit={(event)=> this.evitarSubmit(event)}>
-                    <select name="type" defaultValue="movie">
-                    <option value="movie">Películas</option>
-                    <option value="tv">Series</option>
-                    </select>
-                    <input type="text" className="" name="searchData" placeholder="Buscar..." />
-                    <button type="submit" className="btn btn-success btn-sm">Buscar</button>
-                </form> 
+
+                <FormSearch />
+                 
             </nav>
         </header>
   );
