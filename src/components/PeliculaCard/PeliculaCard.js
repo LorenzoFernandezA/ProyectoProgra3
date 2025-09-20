@@ -8,8 +8,8 @@ class PeliculaCard extends Component {
         super(props);
         this.state = {
             textovm: "Ver más",
-            verMas: false
-            
+            verMas: false,
+            favorito: false,
             
     }
     }
@@ -23,11 +23,48 @@ class PeliculaCard extends Component {
                 this.setState({
                     verMas: true,
                     textovm: "Ver menos"
-            })}}
+            })}
+        };
 
-      
-    
-    
+        componentDidMount() {
+        const storage = localStorage.getItem("favoritos");
+        if (storage) {
+        const lista = JSON.parse(storage);
+        if (lista.includes(this.props.id)) {
+        this.setState({ favorito: true });
+        }
+        }
+        };    
+
+        agregarFavorito(id){
+            const storage = localStorage.getItem('favoritos');
+            if (storage !== null) {
+            const parse = JSON.parse(storage)
+            parse.push(id)
+            const stringified = JSON.stringify(parse)
+            localStorage.setItem('favoritos', stringified)
+        } else{
+            let array = [id]
+            let stringified = JSON.stringify(array)
+            localStorage.setItem('favoritos', stringified)
+        } this.setState({
+            favorito: true,
+        })
+        }
+
+        quitarFavorito(id){
+            const storage = localStorage.getItem('favoritos')
+            const storageParse = JSON.parse(storage)
+            const storageFiltrado = storageParse.filter((elm) => elm !== id)
+            const stringifiedStorage = JSON.stringify(storageFiltrado)
+            localStorage.setItem('favoritos', stringifiedStorage)
+
+            this.setState({
+                favorito: false,
+            }); if(this.props.quitarDeFavoritos !==undefined){
+                this.props.quitarDeFavoritos(id)
+            }
+        }
     
     render() {
         
@@ -42,6 +79,16 @@ class PeliculaCard extends Component {
                     <section className='extra'><p> Descripcion: {this.props.descripcion}</p>
                     </section> : ""}
                     <button><Link to={`/detalle/${this.props.id}`}>Ver Detalles</Link></button>
+                    {
+                        this.state.favorito === true ?
+                            <button onClick={() => this.quitarFavorito(this.props.id)}>
+                                Quitar Favoritos
+                            </button>
+                            :
+                            <button onClick={() => this.agregarFavorito(this.props.id)}>
+                                Agregar Favoritos
+                            </button>
+                    }
                 
                 </article>
 

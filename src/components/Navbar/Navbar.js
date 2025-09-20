@@ -19,7 +19,7 @@ function Navbar() {
                         <Link to ="/series" className="nav-link">Series</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to ="/favoritos" className="nav-link" >Favoritas</Link>
+                        <Link to ="/favoritos" className="nav-link" >Favoritos</Link>
                     </li>
                 </ul>
 

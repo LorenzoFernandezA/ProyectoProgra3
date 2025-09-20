@@ -40,15 +40,15 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0f0f1a;  /* fondo oscuro */
-  color: #eaeaea;             /* texto claro */
+  background-color: #0f0f1a;  
+  color: #eaeaea;             
 }
 
 h2 {
   margin: 20px 0 10px;
   font-size: 1.8rem;
   text-align: center;
-  color: #4da6ff;             /* azul vibrante */
+  color: #4da6ff;             
   font-weight: 600;
 }
 
