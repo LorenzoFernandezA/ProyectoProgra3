@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
 import "./Series.css";
+import "../../styles/VerTodas.css"
+
 
 const options = {
   method: 'GET',
@@ -42,7 +44,7 @@ class Series extends Component {
     return(
       <div>
         <h2>Todas las Series Populares</h2>
-        <section className="grid">
+        <section className="vertodo">
           {this.state.series.map((serie, i) => (
             <PeliculaCard
               key={serie.id}

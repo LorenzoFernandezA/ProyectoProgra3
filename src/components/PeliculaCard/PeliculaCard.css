@@ -19,6 +19,32 @@
   min-height:3em;
 }
 
-.more{
-  margin-right: 13px;
+.cardboton {
+  display: flex;
+  justify-content: center;
+  gap: 12px;   /* espacio uniforme entre botones */
+  margin-top: 10px;
+}
+
+.cardboton button {
+  background-color: #4da6ff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;   
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 110px; 
+  text-align: center;
+}
+
+.cardboton button:hover {
+  background-color: #267acc;
+}
+
+.cardboton a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }

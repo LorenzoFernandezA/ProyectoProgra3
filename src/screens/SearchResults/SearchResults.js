@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import PeliculaCard from "../../components/PeliculaCard/PeliculaCard";
 import "./SearchResults.css"; 
+import "../../styles/VerTodas.css"
 
 class SearchResults extends Component {
     constructor(props) {

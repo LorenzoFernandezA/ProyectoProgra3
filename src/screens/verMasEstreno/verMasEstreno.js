@@ -1,14 +1,16 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Peliculas from "../../components/Peliculas/Peliculas";
+import PeliculaEstreno from "../../components/PeliculaEstreno/PeliculaEstreno";
+import "../../styles/VerTodas.css"
 
 function VerMasEstreno() {
     return (
         <React.Fragment>
 
             <Navbar/>
-            <Peliculas/>
+
+            <PeliculaEstreno/> 
             <Footer/>
 
         </React.Fragment>

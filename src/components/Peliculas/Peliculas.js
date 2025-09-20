@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
 import "./Peliculas.css";
+import "../../styles/VerTodas.css"
 
 
 
@@ -44,7 +45,7 @@ class Peliculas extends Component {
         <React.Fragment>
           <h2>Todas las peliculas mas Populares</h2>
   
-            <section>
+            <section className="vertodo">
               {this.state.populares.map((popular, i) => (
                   <PeliculaCard nombre={popular.title}
                     imagen={popular.poster_path}

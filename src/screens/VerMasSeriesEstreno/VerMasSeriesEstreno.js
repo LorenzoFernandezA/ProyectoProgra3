@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import Series from "../../components/Series/Series";
+import SeriesEstreno from "../../components/SeriesEstreno/SeriesEstreno";
+import "../../styles/VerTodas.css"
 
 function VerMasSeriesEstreno() {
   return (
     <React.Fragment>
       <Navbar/>
-      <Series/>
+      <SeriesEstreno/>
       <Footer/>
     </React.Fragment>
   )

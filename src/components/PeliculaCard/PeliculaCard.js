@@ -72,10 +72,10 @@ class PeliculaCard extends Component {
             <React.Fragment>
                 <article className="card">
                     <h3>{this.props.nombre}</h3>
-                    <img src ={'https://image.tmdb.org/t/p/w342' + this.props.imagen}/>   
-                    
+                    <img src ={'https://image.tmdb.org/t/p/w342' + this.props.imagen}/> 
+                    <div className="cardboton">
                      <button className='more' onClick={() =>this.cambiar()}> {this.state.textovm}</button>
-                     {this.state.verMas === true ?
+                     {this.state.verMas === true ? 
                     <section className='extra'><p> Descripcion: {this.props.descripcion}</p>
                     </section> : ""}
                     <button><Link to={`/detalle/${this.props.id}`}>Ver Detalles</Link></button>
@@ -90,6 +90,7 @@ class PeliculaCard extends Component {
                             </button>
                     }
                 
+                    </div> 
                 </article>
 
             </React.Fragment>)

@@ -1,0 +1,46 @@
+.vertodo {
+    display: grid;
+    grid-template-columns: repeat(4, 220px); 
+    gap: 40px;               /* separación entre cards */
+    justify-content: center; /* centra las columnas */
+    padding: 20px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .vertodo .card {
+    background-color: #2a2a3d;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.2s ease;
+  }
+  
+  .vertodo .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .vertodo img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  
+  /* Botón cargar más */
+  .more {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #4da6ff;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .more:hover {
+    background-color: #267acc;
+  }
