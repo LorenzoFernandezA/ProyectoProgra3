@@ -32,7 +32,7 @@ class Series extends Component {
   }
 
   cargarSeries(){
-    fetch(`https://api.themoviedb.org/3/tv/popular?language=es-ES&page=1`, options)
+    fetch(`https://api.themoviedb.org/3/tv/popular?language=es-ES&page=${this.state.pagina}`, options)
       .then(res => res.json())
       .then(data => this.setState({series: this.state.series.concat(data.results),pagina: this.state.pagina + 1
       }))
