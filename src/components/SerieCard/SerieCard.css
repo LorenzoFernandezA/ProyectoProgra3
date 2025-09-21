@@ -1,0 +1,50 @@
+.card{
+  background:#2a2a3d;
+  border-radius:12px;
+  padding:12px;
+  width: 280px;             
+  text-align:center;
+  transition:transform .2s ease;
+}
+.card:hover{ transform:scale(1.03); }
+
+.card img{
+  width:100%;
+  border-radius:8px;
+  display:block;
+}
+.card h3{
+  font-size:1rem;
+  margin:0 0 .5rem;
+  min-height:3em;
+}
+
+.cardboton {
+  display: flex;
+  justify-content: center;
+  gap: 12px;   /* espacio uniforme entre botones */
+  margin-top: 10px;
+}
+
+.cardboton button {
+  background-color: #4da6ff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 0;   
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 110px; 
+  text-align: center;
+}
+
+.cardboton button:hover {
+  background-color: #267acc;
+}
+
+.cardboton a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}

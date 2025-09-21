@@ -1,5 +1,6 @@
 import React from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard";
+import SerieCard from "../SerieCard/SerieCard";
 import { Link } from "react-router-dom";
 
 const options = {
@@ -31,7 +32,7 @@ class SeriesPopulares extends React.Component {
         <h2>Series Populares:</h2>
         <section className="cuadrado">
         {this.state.datos.slice(0, 4).map((serie) => (
-          <PeliculaCard
+          <SerieCard
             key={serie.id}
             nombre={serie.name}
             imagen={serie.poster_path}

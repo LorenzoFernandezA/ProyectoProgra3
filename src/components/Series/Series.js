@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
 import "./Series.css";
 import "../../styles/VerTodas.css"
-
+import SerieCard from "../SerieCard/SerieCard";
 
 const options = {
   method: 'GET',
@@ -46,7 +46,7 @@ class Series extends Component {
         <h2>Todas las Series Populares</h2>
         <section className="vertodo">
           {this.state.series.map((serie, i) => (
-            <PeliculaCard
+            <SerieCard
               key={serie.id}
               nombre={serie.name}
               imagen={serie.poster_path}

@@ -15,28 +15,19 @@ class DetalleCard extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            info: []
         }   
     }     
-    
-    componentDidMount(){
-       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?language=en-US`, options) 
-    .then(res => res.json())
-    .then(data => this.setState({info: data}))
-    .catch(err => console.error(err));
-    }
-
     render(){
         return(
             <div className="cartaDetalle">
-                <h3>Nombre: {this.state.info.title}</h3>
-                <img src ={'https://image.tmdb.org/t/p/w342/' + this.state.info.poster_path}/>
-                <p>Calificacion: {this.state.info.popularity}</p>
-                <p>Estreno: {this.state.info.release_date} </p>
-                <p>Duracion en minutos: {this.state.info.runtime} </p>
-                <p>Sinopsis: {this.state.info.overview} </p>
-                <p>Genero: {this.state.info.genres &&
-                    this.state.info.genres.map(genero => genero.name).join(', ')} </p>
+                <h3>Nombre: {this.props.info.title}</h3>
+                <img src ={'https://image.tmdb.org/t/p/w342/' + this.props.info.poster_path}/>
+                <p>Calificacion: {this.props.info.popularity}</p>
+                <p>Estreno: {this.props.info.release_date} </p>
+                <p>Duracion en minutos: {this.props.info.runtime} </p>
+                <p>Sinopsis: {this.props.info.overview} </p>
+                <p>Genero: {this.props.info.genres &&
+                    this.props.info.genres.map(genero => genero.name).join(', ')} </p>
                 <button>Agregar a Favoritos</button>
                 
             </div>

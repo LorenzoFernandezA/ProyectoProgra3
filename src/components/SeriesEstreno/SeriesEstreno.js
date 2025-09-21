@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard";
 import "../Series/Series.css"; 
+import SerieCard from "../SerieCard/SerieCard";   
 
 class SeriesEstreno extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class SeriesEstreno extends Component {
         <h2>Todas las Series de Estreno</h2>
         <section className="vertodo">
           {this.state.series.map((serie) => (
-            <PeliculaCard
+            <SerieCard
               key={serie.id}
               nombre={serie.name}
               imagen={serie.poster_path}

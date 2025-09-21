@@ -6,13 +6,12 @@ class Detalle extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            data: null,
+            data: [],
         }
     }
 
     componentDidMount(){
-        const {id} = this.props.match.params;
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=e869b9e987b5106b290be42193522eba`)
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=e869b9e987b5106b290be42193522eba`)
         .then(res => res.json())
         .then(data => this.setState({data: data}))
         .catch(err => console.error(err));
@@ -22,8 +21,7 @@ class Detalle extends Component{
         return(
             <React.Fragment>
                 <Navbar/>
-                
-                {this.state.data && <DetalleCard data={this.state.data}/>}
+                <DetalleCard info={this.state.data}/>
             </React.Fragment>
         )
     }

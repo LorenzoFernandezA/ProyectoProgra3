@@ -12,8 +12,8 @@ import Detalle from './screens/Detalle/Detalle';
 import VerMasPopulares from './screens/VerMasPopulares/VerMasPopulares';
 import VerMasSeriesPopulares from "./screens/VerMasSeriesPopulares/VerMasSeriesPopulares";
 import VerMasSeriesEstreno from "./screens/VerMasSeriesEstreno/VerMasSeriesEstreno.js";
-
-
+import DetalleSeries from './screens/DetalleSeries/DetalleSeries';
+import DetalleCardSeries from './components/DetalleCardSeries/DetalleCardSeries.js';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
       <Route path="/search" component={SearchResults}/>
       <Route path="/verMasEstreno" component={verMasEstreno}/>
       <Route path={'/detalle/:id'} component={Detalle} />
+      <Route path={'/detalle-series/:id'} component={DetalleSeries} />
       <Route component={Error}/>
     </Switch>
   );

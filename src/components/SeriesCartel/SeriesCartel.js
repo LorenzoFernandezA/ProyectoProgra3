@@ -1,6 +1,7 @@
 import React from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard";
 import { Link } from "react-router-dom";
+import SeriesCard from "../SerieCard/SerieCard";
 
 const options = {
   method: 'GET',
@@ -32,7 +33,7 @@ fetch('https://api.themoviedb.org/3/tv/on_the_air?api_key=e869b9e987b5106b290be4
         <h2>Series de Estreno:</h2>
         <section className="cuadrado">
         {this.state.datos.slice(0, 4).map((serie) => (
-          <PeliculaCard
+          <SeriesCard
             key={serie.id}
             nombre={serie.name}
             imagen={serie.poster_path}
