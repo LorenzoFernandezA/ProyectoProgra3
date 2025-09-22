@@ -16,6 +16,8 @@ class Filtro extends Component{
         this.setState({input: evento.target.value},
        // () => this.props.filtro(this.state.input)
         );
+
+        
     }
 
     render(){

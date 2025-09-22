@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import PeliculaEstreno from "../../components/PeliculaEstreno/PeliculaEstreno";
-import Filtro from "../../components/Filtro/Filtro";
 import "../../styles/VerTodas.css"
 
 
@@ -36,7 +35,6 @@ class VerMasEstreno extends Component{
         <React.Fragment>
 
             <Navbar/>
-            <Filtro/>
             <PeliculaEstreno/> 
             <Footer/>
 

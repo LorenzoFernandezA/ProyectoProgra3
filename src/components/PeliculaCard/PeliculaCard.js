@@ -51,7 +51,7 @@ class PeliculaCard extends Component {
             favorito: true,
         })
         }
-
+                
         quitarFavorito(id){
             const storage = localStorage.getItem('favoritosPeliculas')
             const storageParse = JSON.parse(storage)

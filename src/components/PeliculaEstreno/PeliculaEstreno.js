@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
+import Filtro from "../Filtro/Filtro";
 
 
 class PeliculaEstreno extends Component {
@@ -39,6 +40,8 @@ class PeliculaEstreno extends Component {
     );
 
     this.setState({ peliculas: filtradas });
+
+    console.log(texto, filtradas)
     };
 
     render(){
@@ -46,6 +49,7 @@ class PeliculaEstreno extends Component {
         return(
           <div>
             <h2>Todas las Películas de Estreno</h2>
+            <Filtro filtrarPeliculas={() => this.filtrarPeliculas()}/>
             <section className="vertodo">
               {this.state.estrenos.map((pelicula) => (
                 <PeliculaCard
