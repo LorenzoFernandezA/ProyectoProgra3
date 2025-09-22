@@ -23,23 +23,23 @@ class PeliculaEstreno extends Component {
     cargarMas(){
         fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=e869b9e987b5106b290be42193522eba&language=es-ES&page=${this.state.pagina}`)
         .then(res => res.json())
-        .then(data => this.setState({ estrenos: this.state.estrenos.concat(data.results), pagina: this.state.pagina + 1
+        .then(data => this.setState({ estrenos: this.state.estrenos.concat(data.results), estrenosBackup: this.state.estrenosBackup.concat(data.results), pagina: this.state.pagina + 1
         }))
         .catch(err => console.error(err));
     }
 
     filtrarPeliculas = (peliSearch) => {
     if (!peliSearch.trim()) {
-      this.setState({ peliculas: this.state.peliculasBackup });
+      this.setState({ estrenos: this.state.estrenosBackup });
       return;
     }
 
     const texto = peliSearch.toLowerCase().trim();
-    const filtradas = this.state.estrenos.filter((peli) =>
+    const filtradas = this.state.estrenosBackup.filter((peli) =>
       peli.title.toLowerCase().includes(texto)
     );
 
-    this.setState({ peliculas: filtradas });
+    this.setState({ estrenos: filtradas });
 
     console.log(texto, filtradas)
     };
@@ -49,7 +49,7 @@ class PeliculaEstreno extends Component {
         return(
           <div>
             <h2>Todas las Películas de Estreno</h2>
-            <Filtro filtrarPeliculas={() => this.filtrarPeliculas()}/>
+            <Filtro filtro={this.filtrarPeliculas}/>
             <section className="vertodo">
               {this.state.estrenos.map((pelicula) => (
                 <PeliculaCard

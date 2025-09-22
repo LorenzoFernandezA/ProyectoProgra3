@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import PeliculaCard from "../PeliculaCard/PeliculaCard"; 
+import Filtro from "../Filtro/Filtro";
 import "./Peliculas.css";
 import "../../styles/VerTodas.css"
 
@@ -17,15 +18,18 @@ class Peliculas extends Component {
     constructor(props){
         super(props);
         this.state = {
-            populares: [],
-            proximaPopular: 2
+            
+            proximaPopular: 2,
+            peliculas: [], 
+            popularesBackup: [],
+
         };
     }
 
     componentDidMount(){
       fetch('https://api.themoviedb.org/3/movie/popular?language=en-US&page=1', options)
   .then(res => res.json())
-  .then (data => this.setState({populares:data.results}))
+  .then (data => this.setState({popularesBackup: data.results, peliculas: data.results}))
   .catch(err => console.error(err));
 }
       
@@ -34,19 +38,33 @@ class Peliculas extends Component {
     cargarPopulares(){
         fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${this.state.proximaPopular}`,options) /*esta mal la parte de this.state.proximapopular,no lo lee como parte del link*/
     .then(response => response.json())
-    .then(data => this.setState({populares: this.state.populares.concat(data.results),proximaPopular: this.state.proximaPopular + 1}))
+    .then(data => this.setState({proximaPopular: this.state.proximaPopular + 1, peliculas: this.state.concat(data.results), popularesBackup: this.state.concat(data.results)}))
     .catch(error => console.log(error));
     }
 
+    filtrarPeliculas = (peliSearch) => {
+    if (!peliSearch.trim()) {
+      this.setState({ peliculas: this.state.popularesBackup });
+      return;
+    }
 
+    const texto = peliSearch.toLowerCase().trim();
+    const filtradas = this.state.popularesBackup.filter((peli) =>
+      peli.title.toLowerCase().includes(texto)
+    );
+
+    this.setState({ peliculas: filtradas });
+
+    console.log(texto, filtradas)
+    };
     
     render(){
       return(
         <React.Fragment>
           <h2>Todas las peliculas mas Populares</h2>
-  
+          <Filtro filtro={this.filtrarPeliculas}/>
             <section className="vertodo">
-              {this.state.populares.map((popular, i) => (
+              {this.state.peliculas.map((popular, i) => (
                   <PeliculaCard nombre={popular.title}
                     imagen={popular.poster_path}
                     descripcion={popular.overview}

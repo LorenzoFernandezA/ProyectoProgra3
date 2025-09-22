@@ -9,7 +9,7 @@ function VerMasSeriesPopulares() {
   return (
     <React.Fragment>
       <Navbar/>
-      <Filtro/>
+      
       <Series/>
       <Footer/>
     </React.Fragment>

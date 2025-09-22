@@ -9,7 +9,7 @@ function VerMasSeriesEstreno() {
   return (
     <React.Fragment>
       <Navbar/>
-      <Filtro/>
+      
       <SeriesEstreno/>
       <Footer/>
     </React.Fragment>

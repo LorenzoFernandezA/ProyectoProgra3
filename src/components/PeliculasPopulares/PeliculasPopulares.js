@@ -16,7 +16,7 @@ class PeliculasPopulares extends Component {
       .then(res => res.json())
       .then(data => this.setState({datos: data.results}))
       .catch(error => console.error(error));
-  }
+  } 
 
   render() {
     if (this.state.datos.length === 0) return <h3>Cargando...</h3>;

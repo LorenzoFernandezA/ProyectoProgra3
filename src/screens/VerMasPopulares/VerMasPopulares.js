@@ -2,15 +2,13 @@ import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Peliculas from "../../components/Peliculas/Peliculas";
-import Filtro from "../../components/Filtro/Filtro";
 import "../../styles/VerTodas.css"
 
 function VerMasPopulares() {
     return (
         <React.Fragment>
 
-            <Navbar/>
-            <Filtro/>
+            <Navbar/>           
             <Peliculas/>
             <Footer/>
 

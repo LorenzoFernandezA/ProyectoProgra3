@@ -7,27 +7,27 @@ import "../../styles/VerTodas.css"
 
 
 class VerMasEstreno extends Component{
-    constructor(props) {
-        super(props)
-        this.state = {
-            peliculas: [],
-            peliculasBackup: [],
-        };
-    }
+//     constructor(props) {
+//         super(props)
+//         this.state = {
+//             peliculas: [],
+//             peliculasBackup: [],
+//         };
+//     }
 
-    componentDidMount() {
-    fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=e869b9e987b5106b290be42193522eba"
-    )
-      .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          peliculas: data.results,
-          peliculasBackup: data.results,
-        })
-      )
-      .catch((error) => console.error(error));
-    }
+//     componentDidMount() {
+//     fetch(
+//       "https://api.themoviedb.org/3/movie/now_playing?api_key=e869b9e987b5106b290be42193522eba"
+//     )
+//       .then((response) => response.json())
+//       .then((data) =>
+//         this.setState({
+//           peliculas: data.results,
+//           peliculasBackup: data.results,
+//         })
+//       )
+//       .catch((error) => console.error(error));
+//     }
 
     
     render(){
@@ -39,8 +39,10 @@ class VerMasEstreno extends Component{
             <Footer/>
 
         </React.Fragment>
-    )}
-}
+    );
+    }
+  }    
+
 export default VerMasEstreno;
 
 
