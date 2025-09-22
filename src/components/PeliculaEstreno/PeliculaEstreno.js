@@ -7,6 +7,7 @@ class PeliculaEstreno extends Component {
         super(props);
         this.state = {
             estrenos: [],
+            estrenosBackup: [],
             pagina: 1
         };
     }
@@ -14,7 +15,7 @@ class PeliculaEstreno extends Component {
     componentDidMount(){
       fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=e869b9e987b5106b290be42193522eba&language=es-ES&page=1`)
         .then(res => res.json())
-        .then(data => this.setState({ estrenos: data.results, pagina: 2 }))
+        .then(data => this.setState({ estrenos: data.results, pagina: 2, estrenosBackup: data.results }))
         .catch(err => console.error(err));
     }
 
@@ -25,6 +26,20 @@ class PeliculaEstreno extends Component {
         }))
         .catch(err => console.error(err));
     }
+
+    filtrarPeliculas = (peliSearch) => {
+    if (!peliSearch.trim()) {
+      this.setState({ peliculas: this.state.peliculasBackup });
+      return;
+    }
+
+    const texto = peliSearch.toLowerCase().trim();
+    const filtradas = this.state.estrenos.filter((peli) =>
+      peli.title.toLowerCase().includes(texto)
+    );
+
+    this.setState({ peliculas: filtradas });
+    };
 
     render(){
         if(this.state.estrenos.length === 0) return <h3>Cargando...</h3>;

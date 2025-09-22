@@ -30,19 +30,7 @@ class VerMasEstreno extends Component{
       .catch((error) => console.error(error));
     }
 
-    filtrarPeliculas = (peliSearch) => {
-    if (!peliSearch.trim()) {
-      this.setState({ peliculas: this.state.peliculasBackup });
-      return;
-    }
-
-    const texto = peliSearch.toLowerCase();
-    const filtradas = this.state.peliculasBackup.filter((peli) =>
-      peli.title.toLowerCase().includes(texto)
-    );
-
-    this.setState({ peliculas: filtradas });
-    };
+    
     render(){
     return (
         <React.Fragment>
