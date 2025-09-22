@@ -26,38 +26,18 @@ class  SerieCard extends Component {
             })}
         };
 
-        componentDidMount() {
-        const storage = localStorage.getItem("favoritos");
-        if (storage) {
-        const lista = JSON.parse(storage);
-        if (lista.includes(this.props.id)) {
-        this.setState({ favorito: true });
-        }
-        }
-        };    
+        agregarFavorito = (id) => {
+        const storage = localStorage.getItem('favoritosSeries');
+        const favoritos = storage ? JSON.parse(storage) : [];  
+        localStorage.setItem('favoritosSeries', JSON.stringify(favoritos));};
 
-        agregarFavorito(id){
-            const storage = localStorage.getItem('favoritos');
-            if (storage !== null) {
-            const parse = JSON.parse(storage)
-            parse.push(id)
-            const stringified = JSON.stringify(parse)
-            localStorage.setItem('favoritos', stringified)
-        } else{
-            let array = [id]
-            let stringified = JSON.stringify(array)
-            localStorage.setItem('favoritos', stringified)
-        } this.setState({
-            favorito: true,
-        })
-        }
 
         quitarFavorito(id){
-            const storage = localStorage.getItem('favoritos')
+            const storage = localStorage.getItem('favoritosSeries')
             const storageParse = JSON.parse(storage)
             const storageFiltrado = storageParse.filter((elm) => elm !== id)
             const stringifiedStorage = JSON.stringify(storageFiltrado)
-            localStorage.setItem('favoritos', stringifiedStorage)
+            localStorage.setItem('favoritosSeries', stringifiedStorage)
 
             this.setState({
                 favorito: false,
@@ -65,7 +45,6 @@ class  SerieCard extends Component {
                 this.props.quitarDeFavoritos(id)
             }
         }
-    
     render() {
         
         return (

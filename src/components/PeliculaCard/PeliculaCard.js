@@ -26,7 +26,7 @@ class PeliculaCard extends Component {
             })}
         };
 
-        componentDidMount() {
+       /* componentDidMount() {
         const storage = localStorage.getItem("favoritos");
         if (storage) {
         const lista = JSON.parse(storage);
@@ -35,29 +35,29 @@ class PeliculaCard extends Component {
         }
         }
         };    
-
+*/
         agregarFavorito(id){
-            const storage = localStorage.getItem('favoritos');
+            const storage = localStorage.getItem('favoritosPeliculas');
             if (storage !== null) {
             const parse = JSON.parse(storage)
             parse.push(id)
             const stringified = JSON.stringify(parse)
-            localStorage.setItem('favoritos', stringified)
+            localStorage.setItem('favoritosPeliculas', stringified)
         } else{
             let array = [id]
             let stringified = JSON.stringify(array)
-            localStorage.setItem('favoritos', stringified)
+            localStorage.setItem('favoritosPeliculas', stringified)
         } this.setState({
             favorito: true,
         })
         }
 
         quitarFavorito(id){
-            const storage = localStorage.getItem('favoritos')
+            const storage = localStorage.getItem('favoritosPeliculas')
             const storageParse = JSON.parse(storage)
             const storageFiltrado = storageParse.filter((elm) => elm !== id)
             const stringifiedStorage = JSON.stringify(storageFiltrado)
-            localStorage.setItem('favoritos', stringifiedStorage)
+            localStorage.setItem('favoritosPeliculas', stringifiedStorage)
 
             this.setState({
                 favorito: false,

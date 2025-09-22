@@ -24,24 +24,29 @@ class Favoritos extends Component{
         }
     }
     cargarFavoritoPelicula () {
-        const recuperoStorage = localStorage.getItem("peliculasfavoritas");
+        const recuperoStorage = localStorage.getItem("favoritosPeliculas");
         const ids = recuperoStorage ? JSON.parse(recuperoStorage) : [];
      
         if (ids.length === 0) {
+            console.log("No hay favoritos");
             this.setState({ datos: [] });
             return;
         }
-
+        const favoritosRecuperados = [];
         ids.map(id=>{
             fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
             .then(res => res.json())
-            .then(data=> this.setState({datosPelicula: this.state.datos.concat(data)}))
+            .then(data=> {
+                favoritosRecuperados.push(data);
+                this.setState({datosPelicula: favoritosRecuperados})
+            }
+        )
             .catch(err => console.error(err));
         })
         }
 
     CargarFavoritoSerie () {
-        const recuperoStorage = localStorage.getItem("seriesfavoritas");
+        const recuperoStorage = localStorage.getItem("favoritosSeries");
         const ids = recuperoStorage ? JSON.parse(recuperoStorage) : [];
      
         if (ids.length === 0) {
@@ -59,9 +64,9 @@ class Favoritos extends Component{
 
     componentDidMount(){
         this.cargarFavoritoPelicula();
-        this.CargarFavoritoSerie();
+         this.CargarFavoritoSerie();
     }
-    
+
     render(){
         return(
             <React.Fragment>
