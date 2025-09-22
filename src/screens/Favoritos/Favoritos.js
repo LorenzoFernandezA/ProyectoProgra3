@@ -2,6 +2,16 @@ import React, {Component} from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import PeliculaCard from "../../components/PeliculaCard/PeliculaCard";
+import SerieCard from "../../components/SerieCard/SerieCard";
+
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlODY5YjllOTg3YjUxMDZiMjkwYmU0MjE5MzUyMmViYSIsIm5iZiI6MTc1NzYzMTEwNy43ODksInN1YiI6IjY4YzM1MjgzOGJkN2U4NzM1ZDZlZmRhNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lH0oQwGP9Tud6Nblp8Fe8CIq77j6N5Xzs1xrQmOC9Ts'
+  }
+};
+
 
 class Favoritos extends Component{
     constructor(props) {
@@ -9,9 +19,67 @@ class Favoritos extends Component{
         this.state = {
             favoritas: [],
             enFavoritas: false,
+            datosPelicula: [],
+            datosSerie: []
         }
     }
+    cargarFavoritoPelicula () {
+        const recuperoStorage = localStorage.getItem("peliculasfavoritas");
+        const ids = recuperoStorage ? JSON.parse(recuperoStorage) : [];
+     
+        if (ids.length === 0) {
+            this.setState({ datos: [] });
+            return;
+        }
 
+        ids.map(id=>{
+            fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options)
+            .then(res => res.json())
+            .then(data=> this.setState({datosPelicula: this.state.datos.concat(data)}))
+            .catch(err => console.error(err));
+        })
+        }
+
+    CargarFavoritoSerie () {
+        const recuperoStorage = localStorage.getItem("seriesfavoritas");
+        const ids = recuperoStorage ? JSON.parse(recuperoStorage) : [];
+     
+        if (ids.length === 0) {
+            this.setState({ datos: [] });
+            return;
+            }
+
+        ids.map(id=>{
+            fetch(`https://api.themoviedb.org/3/tv/${id}?language=en-US`, options)
+            .then(res => res.json())
+            .then(data=> this.setState({datosSerie: this.state.datos.concat(data) }))
+            .catch(err => console.error(err));
+            })
+            }
+
+    componentDidMount(){
+        this.cargarFavoritoPelicula();
+        this.CargarFavoritoSerie();
+    }
+    
+    render(){
+        return(
+            <React.Fragment>
+                <Navbar/>
+        {this.state.datosPelicula.map((info, idx) =>(
+        <PeliculaCard nombre={info.title} imagen={info.poster_path} descripcion={info.overview} id={info.id} key={idx + info.title}/>
+    ))}
+    {this.state.datosSerie.map((info, idx) =>(
+        <SerieCard nombre={info.name} imagen={info.poster_path} descripcion={info.overview} id={info.id} key={idx + info.name}/>
+    ))}
+                <Footer/>
+            </React.Fragment>
+   )}
+
+
+
+
+   /*
     componentDidMount(){
         const storageFavoritos = localStorage.getItem('favoritos');
         if (storageFavoritos !== null) {
@@ -63,5 +131,7 @@ class Favoritos extends Component{
             <Footer/>
         </React.Fragment>
     )}
+         */
 }
+   
 export default Favoritos;
