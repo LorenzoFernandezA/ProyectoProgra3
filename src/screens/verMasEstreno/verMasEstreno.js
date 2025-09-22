@@ -1,20 +1,60 @@
-import React from "react";
+import React, {Component} from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import PeliculaEstreno from "../../components/PeliculaEstreno/PeliculaEstreno";
+import Filtro from "../../components/Filtro/Filtro";
 import "../../styles/VerTodas.css"
 
-function VerMasEstreno() {
+
+
+class VerMasEstreno extends Component{
+    constructor(props) {
+        super(props)
+        this.state = {
+            peliculas: [],
+            peliculasBackup: [],
+        };
+    }
+
+    componentDidMount() {
+    fetch(
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=e869b9e987b5106b290be42193522eba"
+    )
+      .then((response) => response.json())
+      .then((data) =>
+        this.setState({
+          peliculas: data.results,
+          peliculasBackup: data.results,
+        })
+      )
+      .catch((error) => console.error(error));
+    }
+
+    filtrarPeliculas = (peliSearch) => {
+    if (!peliSearch.trim()) {
+      this.setState({ peliculas: this.state.peliculasBackup });
+      return;
+    }
+
+    const texto = peliSearch.toLowerCase();
+    const filtradas = this.state.peliculasBackup.filter((peli) =>
+      peli.title.toLowerCase().includes(texto)
+    );
+
+    this.setState({ peliculas: filtradas });
+    };
+    render(){
     return (
         <React.Fragment>
 
             <Navbar/>
-
+            <Filtro/>
             <PeliculaEstreno/> 
             <Footer/>
 
         </React.Fragment>
     )}
+}
 export default VerMasEstreno;
 
 

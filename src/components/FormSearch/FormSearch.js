@@ -19,6 +19,8 @@ class FormSearch extends Component{
         this.setState({query: evento.target.value})
     }
 
+    
+
     render(){
         return(
             <form onSubmit={(evento) => this.evitarSubmit(evento)}>
