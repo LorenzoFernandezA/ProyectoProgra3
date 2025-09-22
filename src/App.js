@@ -7,13 +7,12 @@ import Favoritos from "./screens/Favoritos/Favoritos";
 import Error from "./screens/Error/Error";
 import SearchResults from "./screens/SearchResults/SearchResults";
 import verMasEstreno from './screens/verMasEstreno/verMasEstreno';
-import DetalleCard from './components/DetalleCard/DetalleCard';
+
 import Detalle from './screens/Detalle/Detalle';
 import VerMasPopulares from './screens/VerMasPopulares/VerMasPopulares';
 import VerMasSeriesPopulares from "./screens/VerMasSeriesPopulares/VerMasSeriesPopulares";
 import VerMasSeriesEstreno from "./screens/VerMasSeriesEstreno/VerMasSeriesEstreno.js";
 import DetalleSeries from './screens/DetalleSeries/DetalleSeries';
-import DetalleCardSeries from './components/DetalleCardSeries/DetalleCardSeries.js';
 
 function App() {
   return (

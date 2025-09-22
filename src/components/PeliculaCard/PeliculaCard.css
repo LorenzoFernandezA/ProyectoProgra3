@@ -21,8 +21,8 @@
 
 .cardboton {
   display: flex;
-  justify-content: center;
-  gap: 12px;   /* espacio uniforme entre botones */
+  flex-direction: column;
+  gap: 10px;   /* espacio uniforme entre botones */
   margin-top: 10px;
 }
 
