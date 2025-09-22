@@ -32,7 +32,7 @@ fetch('https://api.themoviedb.org/3/tv/on_the_air?api_key=e869b9e987b5106b290be4
       <div>
         <h2>Series de Estreno:</h2>
         <section className="cuadrado">
-        {this.state.datos.slice(0, 4).map((serie) => (
+        {this.state.datos.filter((_, index) => index < 4).map((serie) => (
           <SeriesCard
             key={serie.id}
             nombre={serie.name}

@@ -31,7 +31,7 @@ class SeriesPopulares extends React.Component {
       <div>
         <h2>Series Populares:</h2>
         <section className="cuadrado">
-        {this.state.datos.slice(0, 4).map((serie) => (
+        {this.state.datos.filter((_, index) => index < 4).map((serie) => (
           <SerieCard
             key={serie.id}
             nombre={serie.name}

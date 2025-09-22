@@ -24,7 +24,7 @@ class PeliculasPopulares extends Component {
       <div>
         <h2>Películas Populares:</h2>
         <section className="cuadrado">
-        {this.state.datos.slice(0, 4).map((pelicula) => (
+        {this.state.datos.filter((_, index) => index < 4).map((pelicula) => (
           <PeliculaCard
             key={pelicula.id}
             nombre={pelicula.title}

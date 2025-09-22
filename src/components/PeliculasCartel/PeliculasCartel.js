@@ -28,7 +28,7 @@ class PeliculasCartel extends Component {
                 <h2>Peliculas de Estreno: </h2>
 
                 <section className="cuadrado">
-                {this.state.datos.slice(0,4).map((pelicula)=> (<PeliculaCard
+                {this.state.datos.filter((_, index) => index < 4).map((pelicula)=> (<PeliculaCard
             key={pelicula.id}
             nombre={pelicula.title}
             imagen={pelicula.poster_path}
