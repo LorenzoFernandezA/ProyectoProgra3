@@ -71,9 +71,11 @@ class Favoritos extends Component{
         return(
             <React.Fragment>
                 <Navbar/>
+                <h2>Peliculas Favoritas</h2>
         {this.state.datosPelicula.map((info, idx) =>(
         <PeliculaCard nombre={info.title} imagen={info.poster_path} descripcion={info.overview} id={info.id} key={idx + info.title}/>
     ))}
+                <h2>Series Favoritas</h2>
     {this.state.datosSerie.map((info, idx) =>(
         <SerieCard nombre={info.name} imagen={info.poster_path} descripcion={info.overview} id={info.id} key={idx + info.name}/>
     ))}
