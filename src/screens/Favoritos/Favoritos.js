@@ -29,7 +29,7 @@ class Favoritos extends Component{
      
         if (ids.length === 0) {
             console.log("No hay favoritos");
-            this.setState({ datos: [] });
+            this.setState({ datosPelicula: [] });
             return;
         }
         const favoritosRecuperados = [];
@@ -50,14 +50,14 @@ class Favoritos extends Component{
         const ids = recuperoStorage ? JSON.parse(recuperoStorage) : [];
      
         if (ids.length === 0) {
-            this.setState({ datos: [] });
+            this.setState({ datosSerie: [] });
             return;
             }
 
         ids.map(id=>{
             fetch(`https://api.themoviedb.org/3/tv/${id}?language=en-US`, options)
             .then(res => res.json())
-            .then(data=> this.setState({datosSerie: this.state.datos.concat(data) }))
+            .then(data=> this.setState({datosSerie: this.state.datosSerie.concat(data) }))
             .catch(err => console.error(err));
             })
             }
@@ -72,13 +72,18 @@ class Favoritos extends Component{
             <React.Fragment>
                 <Navbar/>
                 <h2>Peliculas Favoritas</h2>
+                <section className="cuadrado">
         {this.state.datosPelicula.map((info, idx) =>(
         <PeliculaCard nombre={info.title} imagen={info.poster_path} descripcion={info.overview} id={info.id} key={idx + info.title}/>
     ))}
+     </section>
                 <h2>Series Favoritas</h2>
+                <section className="cuadrado">
     {this.state.datosSerie.map((info, idx) =>(
         <SerieCard nombre={info.name} imagen={info.poster_path} descripcion={info.overview} id={info.id} key={idx + info.name}/>
     ))}
+    </section>
+               
                 <Footer/>
             </React.Fragment>
    )}
